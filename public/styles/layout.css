@@ -28,9 +28,10 @@ body {
  .container {
   margin-left: 5%;
   margin-right: 5%;
-  background-color: #f4f1ec;
+  background-color: inherit;
   display: flex;
   align-items: center;
   justify-content: center; 
   flex-direction: column;
+  
  }
