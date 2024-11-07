@@ -1,21 +1,30 @@
 .tweet-container {
   width: 100%;
+}
+
+.tweet-class {
+  width: 100%;
   border: 3px solid black;
   margin-top: 1.5em;  
+  
 }
 
 
-.tweet-container:hover {
+.tweet-class:hover {
   box-shadow: 10px 5px 5px lightsteelblue;
 }
 
 
-.tweet-container header {
+.tweet-class header {
   margin-left: 1%;
   margin-right: 1%;
   display: flex;
   justify-content: space-between;
   font-weight: 100;
+}
+
+.tweet-class header div {
+  display: flex;
 }
 
 
