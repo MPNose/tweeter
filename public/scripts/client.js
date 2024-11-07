@@ -14,17 +14,30 @@ $(document).ready(function() {
   }
 
   loadTweets();
+  $("form").on('submit', function(event) {
+    event.preventDefault();
+    const input = $('#tweet-text').val();
+    const count = input.length;
+    if (input.trim() === "") {
+      alert("Please enter text");
+      return;
+    }
+    if (count > 140) {
+      alert('Character limit exceeded');
+      return;
+    }
+    
+    const data = $(this).serialize();
+    $(this).trigger('reset')
+    $.ajax({
+      method: 'POST',
+      url: "/tweets",
+      data: data,
+      success: loadTweets()
+    })
+  })
 });
   
-$("form").on('submit', function(event) {
-  event.preventDefault();
-  const data = $(this).serialize();
-  $.ajax({
-    method: 'POST',
-    url: "/tweets",
-    data: data
-  })
-})
 
 
 
