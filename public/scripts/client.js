@@ -3,6 +3,7 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
+//when the the document has rendered, this function runs
 $(document).ready(function() {
   function loadTweets() {
     $.ajax('/tweets', {
@@ -12,9 +13,10 @@ $(document).ready(function() {
       renderTweets(data);
     })
   }
-
+  //listening for a submit signal inside the form
   loadTweets();
   $("form").on('submit', function(event) {
+    //prevent page from realoading
     event.preventDefault();
     const input = $('#tweet-text').val();
     const count = input.length;
@@ -28,37 +30,39 @@ $(document).ready(function() {
       $('.too-long').slideDown();
       return;
     }
-    
+    //clean up response data into readable format
     const data = $(this).serialize();
-    $(this).trigger('reset');
     $.ajax({
       method: 'POST',
       url: "/tweets",
       data: data,
+      //reset counter, clear text bar, load tweets with new tweet
       success: function() {
         $(`.counter`).text('140');
+        $('#tweet-text').val("");
         loadTweets();
       }
     })
   })
 });
-  
+
+
 const escape = function (str) {
   let div = document.createElement("div");
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
 };
 
-
-
-
+//takes in tweets from get request
 const renderTweets = function(tweets) {
+  $('.tweet-container').empty();
   for (const tweet of tweets) {
     let renderTweet = createTweetElement(tweet);
     $('.tweet-container').prepend(renderTweet);
   }
 };
 
+//formats appearance of tweet passed from renderTweets, based off html and css layout
 const createTweetElement = function(tweet) {
   const date = tweet.created_at;
   let $tweet = $(`<article class="tweet-class">

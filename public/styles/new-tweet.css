@@ -1,36 +1,41 @@
 .new-tweet {
   width: 100%;
+  margin-top: 5%;
 }
 
 label {
   border-bottom: 3px;
-  top: -5px;
+  top: 10px;
   left: 0;
-  position: relative;
   padding-bottom: 5px;
-  
 }
+
+
 .error {
   color: red;
 }
+
 
 .counter {
 float: right;
 font-family: "Bungee", sans-serif;
 }
 
+
 #tweet-text {
   width: 100%;
   border: 0px solid #000000;
   border-bottom-width: 3px;
   background-color: transparent;
-  
 }
+
+
 button {
   background-color: #4056A1;
   color: #FFFFFF;
   font-family: "Bungee", sans-serif;
 }
+
 
 .too-long {
   color: red;
@@ -39,9 +44,32 @@ button {
   border: 3px solid red;
 }
 
+
 .empty-error {
   color: red;
   display: none;
   text-align: center;
   border: 3px solid red;
 }
+
+
+@media only screen and (max-width: 1023px) {
+  .nav {
+    background-color: #f0a12b;
+    background-image: url("https://www.transparenttextures.com/patterns/60-lines.png");
+  }
+}
+
+
+@media only screen and (min-width: 1024px) {
+  .header {
+    width: 28.3%;
+    float: left;
+    margin-top: 8%;
+    margin-left: 5%;
+  }
+  .container {
+    width: 56.7%;
+    float: right;
+  }
+ }
