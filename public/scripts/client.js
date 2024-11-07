@@ -28,13 +28,16 @@ $(document).ready(function() {
     }
     
     const data = $(this).serialize();
-    $(this).trigger('reset')
     $.ajax({
       method: 'POST',
       url: "/tweets",
       data: data,
-      success: loadTweets()
+      success: function() {
+        $(`.counter`).text('140');
+        loadTweets();
+      }
     })
+    $(this).trigger('reset');
   })
 });
   
