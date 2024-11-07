@@ -31,3 +31,17 @@ button {
   color: #FFFFFF;
   font-family: "Bungee", sans-serif;
 }
+
+.too-long {
+  color: red;
+  display: none;
+  text-align: center;
+  border: 3px solid red;
+}
+
+.empty-error {
+  color: red;
+  display: none;
+  text-align: center;
+  border: 3px solid red;
+}

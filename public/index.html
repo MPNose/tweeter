@@ -46,7 +46,8 @@
     <!-- Page-specific (main) content here -->
     <main class="container">
       <section class="new-tweet">
-        <h2>Compose Tweet</h2>
+        <div class="empty-error"><i class="fa-solid fa-triangle-exclamation"></i> Please enter text <i class="fa-solid fa-triangle-exclamation"></i></div>
+        <div class="too-long"><i class="fa-solid fa-triangle-exclamation"></i> Character limit exceeded <i class="fa-solid fa-triangle-exclamation"></i></div>
         <form method="POST" action="/tweets/">
           <label for="tweet-text">What are you humming about?</label>
           <textarea name="text" id="tweet-text"></textarea>

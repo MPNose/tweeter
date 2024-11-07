@@ -18,16 +18,19 @@ $(document).ready(function() {
     event.preventDefault();
     const input = $('#tweet-text').val();
     const count = input.length;
+    $('.empty-error').slideUp();
+    $('.too-long').slideUp();
     if (input.trim() === "") {
-      alert("Please enter text");
+      $('.empty-error').slideDown();
       return;
     }
     if (count > 140) {
-      alert('Character limit exceeded');
+      $('.too-long').slideDown();
       return;
     }
     
     const data = $(this).serialize();
+    $(this).trigger('reset');
     $.ajax({
       method: 'POST',
       url: "/tweets",
@@ -37,11 +40,14 @@ $(document).ready(function() {
         loadTweets();
       }
     })
-    $(this).trigger('reset');
   })
 });
   
-
+const escape = function (str) {
+  let div = document.createElement("div");
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+};
 
 
 
@@ -58,14 +64,14 @@ const createTweetElement = function(tweet) {
   let $tweet = $(`<article class="tweet-class">
     <header>
       <div>
-      <img src=${tweet.user.avatars}/>
+      <img src=${escape(tweet.user.avatars)}/>
         <p> ${tweet.user.name}</p>
         </div>
-        <p class="handle">${tweet.user.handle}</p>
+        <p class="handle">${escape(tweet.user.handle)}</p>
       </header>
-        <p class="tweet">${tweet.content.text}</p>
+        <p class="tweet">${escape(tweet.content.text)}</p>
         <footer>
-          <p>${timeago.format(date)}</p>
+          <p>${escape(timeago.format(date))}</p>
           <p><i class="fa-solid fa-flag"></i>  <i class="fa-solid fa-retweet"></i> 
              <i class="fa-solid fa-heart"> </i></p>
         </footer>
