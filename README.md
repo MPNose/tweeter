@@ -16,4 +16,4 @@ A simple single-page AJAX-based twitter clone that uses jQuery, HTML5 and CSS3 t
 - Node 5.10.x or above
 
 !["comressed Tweeter page"](https://github.com/MPNose/tweeter/blob/master/docs/Tweet-layout1.png?raw=true)
-!["screenshot description](URL)
+!["extended Tweeter page"](https://github.com/MPNose/tweeter/blob/master/docs/Tweet-layout2.png?raw=true)
