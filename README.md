@@ -14,3 +14,6 @@ A simple single-page AJAX-based twitter clone that uses jQuery, HTML5 and CSS3 t
 
 - Express
 - Node 5.10.x or above
+
+!["screenshot description](URL)
+!["screenshot description](URL)
